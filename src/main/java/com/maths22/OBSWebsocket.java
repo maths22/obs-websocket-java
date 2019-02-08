@@ -311,7 +311,7 @@ public class OBSWebsocket
     @OnMessage
     public void websocketMessageHandler(String message, Session session) {
         JSONObject body = new JSONObject(message);
-        if (body.get("message-id") != null)
+        if (body.has("message-id"))
         {
             // Handle a request :
             // Find the response handler based on
@@ -328,7 +328,7 @@ public class OBSWebsocket
             }
              
         }
-        else if (body.get("update-type") != null)
+        else if (body.has("update-type"))
         {
             // Handle an event
             String eventType = body.getString("update-type");
